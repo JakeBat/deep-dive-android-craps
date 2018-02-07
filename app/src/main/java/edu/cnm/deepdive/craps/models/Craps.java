@@ -39,6 +39,10 @@ public class Craps {
     return sum;
   }
 
+  public State getState() {
+    return state;
+  }
+
   public enum State {
     COME_OUT, WIN, LOSS, POINT, TERMINAL;
 
