@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- *
+ * A class that contains the basic logic for the game of craps.
  */
 public class Craps {
 
@@ -14,8 +14,10 @@ public class Craps {
   private List<int[]> rolls = new LinkedList<>();
 
   /**
+   * Gets a copy of the <code>List<int[]></code> that was created by the <code>play</code>
+   * method.
    *
-   * @return
+   * @return Returns a <code>List<int[]></code>
    */
   public List<int[]> getRolls() {
     List<int[]> copy = new LinkedList<>(rolls);
@@ -23,7 +25,7 @@ public class Craps {
   }
 
   /**
-   *
+   * Resets the <code>State</code> to <code>COME_OUT</code>
    */
   protected void reset() {
     state = State.COME_OUT;
@@ -31,8 +33,10 @@ public class Craps {
   }
 
   /**
+   *Returns either the <code>WIN</code> or <code>LOSS</code> state based on
+   * the <code>roll</code> method.
    *
-   * @return
+   * @return Returns a <code>State</code>
    */
   public State play() {
     reset();
@@ -43,8 +47,9 @@ public class Craps {
   }
 
   /**
+   * Returns the sum of the two <code>dice</code> "rolls"
    *
-   * @return
+   * @return Returns a int
    */
   protected int roll() {
     int[] dice = {
@@ -58,14 +63,16 @@ public class Craps {
   }
 
   /**
+   * Gets the current <code>State</code>
    *
-   * @return
+   * @return Returns the current <code>State</code>
    */
   public State getState() {
     return state;
   }
 
   /**
+   * Enum that contains the possible <code>State</code>'s for the game.
    *
    */
   public enum State {
@@ -74,9 +81,10 @@ public class Craps {
     private int point = 0;
 
     /**
+     * The actual logic the game uses when it "plays"
      *
-     * @param diceSum
-     * @return
+     * @param diceSum int used to determine the <code>State</code> of the game.
+     * @return Returns a <code>State</code>
      */
     public State roll(int diceSum) {
       switch (this) {
@@ -107,8 +115,9 @@ public class Craps {
     }
 
     /**
+     * Makes the game play again
      *
-     * @return
+     * @return Returns the current instance
      */
     public State playAgain() {
       if (this == WIN || this == LOSS) {
@@ -119,8 +128,9 @@ public class Craps {
     }
 
     /**
+     * Gives the option to terminate a game mid play
      *
-     * @return
+     * @return Returns the current instance
      */
     public State surrender() {
       if (this != COME_OUT) {

@@ -1,7 +1,7 @@
 package edu.cnm.deepdive.craps.models;
 
 /**
- *
+ * Class that implement the logic from the <code>Craps</code> class to simulate a game of Craps
  */
 public class Game {
 
@@ -10,7 +10,7 @@ public class Game {
   private long losses;
 
   /**
-   *
+   * Creates a new instance of the <code>Craps</code> class
    */
   public Game() {
     craps = new Craps();
@@ -18,8 +18,9 @@ public class Game {
   }
 
   /**
+   * "Plays" a  game of Craps
    *
-   * @return
+   * @return Returns a State
    */
   public Craps.State play() {
     Craps.State result = craps.play();
@@ -32,7 +33,7 @@ public class Game {
   }
 
   /**
-   *
+   * Resets the wins and losses tallies as well as call the <code>reset</code> method
    */
   public void reset() {
     wins = 0;
@@ -41,24 +42,27 @@ public class Game {
   }
 
   /**
+   * Gets an instance of the <code>Craps</code> class
    *
-   * @return
+   * @return Returns an instance of the <code>Craps</code> class
    */
   public Craps getCraps() {
     return craps;
   }
 
   /**
+   * Gets the current <code>wins</code> tally.
    *
-   * @return
+   * @return Returns the current <code>wins</code> tally.
    */
   public long getWins() {
     return wins;
   }
 
   /**
+   * Gets the current <code>losses</code> tally.
    *
-   * @return
+   * @return Returns the current <code>losses</code> tally.
    */
   public long getLosses() {
     return losses;
