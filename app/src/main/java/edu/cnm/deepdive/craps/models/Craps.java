@@ -4,22 +4,36 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ *
+ */
 public class Craps {
 
   private State state = State.COME_OUT;
   private Random rng = new Random();
   private List<int[]> rolls = new LinkedList<>();
 
+  /**
+   *
+   * @return
+   */
   public List<int[]> getRolls() {
     List<int[]> copy = new LinkedList<>(rolls);
     return copy;
   }
 
+  /**
+   *
+   */
   protected void reset() {
     state = State.COME_OUT;
     rolls.clear();
   }
 
+  /**
+   *
+   * @return
+   */
   public State play() {
     reset();
     do {
@@ -28,6 +42,10 @@ public class Craps {
     return state;
   }
 
+  /**
+   *
+   * @return
+   */
   protected int roll() {
     int[] dice = {
         1 + rng.nextInt(6),
@@ -39,15 +57,27 @@ public class Craps {
     return sum;
   }
 
+  /**
+   *
+   * @return
+   */
   public State getState() {
     return state;
   }
 
+  /**
+   *
+   */
   public enum State {
     COME_OUT, WIN, LOSS, POINT, TERMINAL;
 
     private int point = 0;
 
+    /**
+     *
+     * @param diceSum
+     * @return
+     */
     public State roll(int diceSum) {
       switch (this) {
         case COME_OUT:
@@ -76,6 +106,10 @@ public class Craps {
       }
     }
 
+    /**
+     *
+     * @return
+     */
     public State playAgain() {
       if (this == WIN || this == LOSS) {
         return COME_OUT;
@@ -84,6 +118,10 @@ public class Craps {
       }
     }
 
+    /**
+     *
+     * @return
+     */
     public State surrender() {
       if (this != COME_OUT) {
         return TERMINAL;
