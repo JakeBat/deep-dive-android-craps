@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import edu.cnm.deepdive.craps.R;
-import edu.cnm.deepdive.craps.models.Craps.State;
+import edu.cnm.deepdive.craps.model.Craps.State;
 import java.util.List;
 
 public class DiceImageAdapter extends ArrayAdapter<int[]> {

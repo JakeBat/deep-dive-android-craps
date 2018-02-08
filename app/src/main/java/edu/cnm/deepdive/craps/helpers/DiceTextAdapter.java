@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import edu.cnm.deepdive.craps.R;
-import edu.cnm.deepdive.craps.models.Craps;
-import edu.cnm.deepdive.craps.models.Craps.State;
+import edu.cnm.deepdive.craps.model.Craps;
+import edu.cnm.deepdive.craps.model.Craps.State;
 import java.util.List;
 
 public class DiceTextAdapter extends ArrayAdapter<int[]> {
